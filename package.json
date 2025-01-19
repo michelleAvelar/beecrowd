@@ -1,0 +1,23 @@
+{
+  "name": "beecrowd",
+  "version": "1.0.0",
+  "description": "Beecrowd Test - Selection Process",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "rm -rf cypress/reports/* mochawesome-report || rmdir /s /q cypress\\reports mochawesome-report",
+    "generate:report": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json && npx mochawesome-report-generator cypress/reports/merged-report.json && cd mochawesome-report && open merged-report.html",
+    "cy:run": "npm run clean:reports && npx cypress run",
+    "open": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "cypress": "^13.16.1",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "dependencies": {
+    "mochawesome": "^7.1.3"
+  }
+}
